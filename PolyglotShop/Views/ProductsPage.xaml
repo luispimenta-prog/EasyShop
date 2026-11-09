@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PolyglotShop.ViewModels"
+             xmlns:m="clr-namespace:PolyglotShop.Models"
+             x:Class="PolyglotShop.Views.ProductsPage"
+             x:DataType="vm:ProductsViewModel"
+             Title="Produtos (NoSQL)">
+    <Grid RowDefinitions="Auto,*" Padding="16" RowSpacing="12">
+        <VerticalStackLayout Spacing="8">
+            <Label Text="Novo produto (LiteDB - documentos)" FontAttributes="Bold" FontSize="16" />
+            <Entry Placeholder="Nome" Text="{Binding Name}" />
+            <Entry Placeholder="Preço (ex.: 199,90)" Keyboard="Numeric" Text="{Binding PriceText}" />
+            <Entry Placeholder="Categoria (opcional)" Text="{Binding Category}" />
+            <Entry Placeholder="Atributos (opcional): Cor=Azul; Tamanho=M" Text="{Binding AttributesText}" />
+            <Button Text="Salvar produto" Command="{Binding AddCommand}" />
+            <Label Text="{Binding Message}" FontSize="13" />
+        </VerticalStackLayout>
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Products}">
+            <CollectionView.EmptyView>
+                <Label Text="Nenhum produto cadastrado." HorizontalOptions="Center" />
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="m:Product">
+                    <Border Padding="12" Margin="0,4" StrokeThickness="1">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="{Binding Header}" FontAttributes="Bold" />
+                            <Label Text="{Binding PriceDisplay}" />
+                            <Label Text="{Binding AttributesDisplay}" FontSize="12" />
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
