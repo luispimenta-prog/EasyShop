@@ -8,9 +8,9 @@ Protótipo de mini e-commerce que usa **dois bancos locais ao mesmo tempo** no m
 | Clientes | SQL (relacional)     | SQLite (sqlite-net)   | `customers.db3`   |
 
 ## Integrantes
-- NOME COMPLETO DO INTEGRANTE 1
-- NOME COMPLETO DO INTEGRANTE 2
-- (NOME COMPLETO DO INTEGRANTE 3 – se houver)
+- Luis Felipe
+- Thainá Mariano
+- Paulo Henrique
 
 ## Por que poliglota?
 - **Clientes** exigem consistência: tabela com PK autoincrement, `NOT NULL` e e-mail `UNIQUE`.
